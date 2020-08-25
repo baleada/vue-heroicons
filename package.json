@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "prepare": "node scripts/prepare.js",
-    "update-icons": "cd git_modules/heroicons && git fetch"
+    "update-icons": "cd git_modules/heroicons && git pull",
+    "stats": "npm run update-icons && node scripts/stats.js"
   },
   "repository": {
     "type": "git",
