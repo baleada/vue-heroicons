@@ -32,7 +32,7 @@ function stats () {
   }))
 
 
-  const packageInfo = execSync('npm view -json', { cwd: `${resolve('')}/git_modules/heroicons` }, (err, stdout, stderr) => {
+  const packageInfo = execSync('npm view -json', (err, stdout, stderr) => {
           if (err) {
             // node couldn't execute the command
             return
