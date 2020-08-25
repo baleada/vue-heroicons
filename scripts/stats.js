@@ -20,6 +20,8 @@ function stats () {
   console.log(`${outlineIcons.length} outline icons`)
   console.log(`${solidIcons.length + outlineIcons.length} total icons`)
 
+  console.log('---')
+
   const lastSourcePublishDate = new Date(execSync('git log -1 --format=%cd', { cwd: `${resolve('')}/git_modules/heroicons` }, (err, stdout, stderr) => {
     if (err) {
       // node couldn't execute the command
