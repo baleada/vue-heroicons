@@ -1,6 +1,6 @@
 {
   "name": "@baleada/vue-heroicons",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue components that wrap up the Heroicons set for the Baleada toolkit",
   "main": "lib/index.js",
   "scripts": {
