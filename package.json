@@ -11,6 +11,7 @@
     "prepare": "rollup --config rollup.config.js",
     "test:only": "run() { npx uvu tests/$2 $1.test.js$; }; run",
     "test": "npm run test:only .",
+    "dev": "vite",
     "update-icons": "cd git_modules/heroicons && git pull"
   },
   "repository": {
@@ -34,10 +35,11 @@
   },
   "homepage": "https://baleada.netlify.com",
   "devDependencies": {
-    "@baleada/prepare": "^0.4.28",
+    "@baleada/prepare": "^0.4.29",
     "@vue/compiler-sfc": "^3.0.4",
     "rollup": "^2.35.1",
-    "uvu": "^0.5.1"
+    "uvu": "^0.5.1",
+    "vite": "^1.0.0-rc.13"
   },
   "sideEffects": false
 }
