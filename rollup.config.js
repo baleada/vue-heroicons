@@ -1,19 +1,22 @@
-import vue from 'rollup-plugin-vue'
-import babel from 'rollup-plugin-babel'
-import resolve from '@rollup/plugin-node-resolve'
+import { configureable, getIcons } from '@baleada/prepare'
 
-const plugins = [
-  vue(),
-  babel({
-    exclude: 'node_modules/**'
-  }),
-  resolve(),
-]
+const icons = getIcons({
+  set: 'Heroicons',
+  dirs: ['solid', 'outline'],
+  basePath: 'git_modules/heroicons',
+  toSnakeCased: ({ name, dir }) => `${name}${dir === 'outline' ? '-outline' : ''}`,
+})
 
 export default [
-  {
-    input: 'src/index.js',
-    output: { dir: 'lib', format: 'esm' },
-    plugins,
-  },
+  configureable('rollup')
+    .delete({ targets: 'lib/*' })
+    .input('src/index.js')
+    .resolve()
+    .external([/^vue$/])
+    .virtual.iconComponentIndex({ icons })
+    .virtual.iconComponents({ icons })
+    .vue()
+    .esm({ file: 'lib/index.js', target: 'browser' })
+    // .analyze()
+    .configure()
 ]

@@ -2,11 +2,16 @@
   "name": "@baleada/vue-heroicons",
   "version": "0.0.2",
   "description": "Vue components that wrap up the Heroicons set for the Baleada toolkit",
-  "main": "lib/index.js",
+  "type": "module",
+  "module": "lib/index.js",
+  "exports": {
+    "import": "./lib/index.js"
+  },
   "scripts": {
-    "prepare": "node scripts/prepare.js",
-    "update-icons": "cd git_modules/heroicons && git pull",
-    "stats": "npm run update-icons && node scripts/stats.js"
+    "prepare": "rollup --config rollup.config.js",
+    "test:only": "run() { npx uvu tests/$2 $1.test.js$; }; run",
+    "test": "npm run test:only .",
+    "update-icons": "cd git_modules/heroicons && git pull"
   },
   "repository": {
     "type": "git",
@@ -29,15 +34,10 @@
   },
   "homepage": "https://baleada.netlify.com",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "@baleada/prepare": "^0.1.1",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "@vue/compiler-sfc": "^3.0.0-beta.20",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-vue": "^6.0.0-beta.6"
+    "@baleada/prepare": "^0.4.28",
+    "@vue/compiler-sfc": "^3.0.4",
+    "rollup": "^2.35.1",
+    "uvu": "^0.5.1"
   },
-  "sideEffects": false,
-  "dependencies": {}
+  "sideEffects": false
 }
