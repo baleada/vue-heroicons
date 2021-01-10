@@ -12,7 +12,7 @@ export default [
     .delete({ targets: 'lib/*' })
     .input('src/index.js')
     .resolve()
-    .external([/^vue$/])
+    .external(['vue'])
     .virtual.iconComponentIndex({ icons })
     .virtual.iconComponents({ icons })
     .vue()
